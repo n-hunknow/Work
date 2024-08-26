@@ -1,0 +1,25 @@
+Alle Infos zum Bookstack(stand 31.07.2024) 
+Subnet: 10.0.0.0/8 
+IP-Adresse: 10.1.0.101 
+Gateway: 10.0.4.3
+Name Servers: 10.32.5.1
+Search domains: neuefeind-bookstack.local
+
+Your name: admin 
+Your server name: neuefeind-bookstack
+Username: neuefeind
+Password: nf 
+Falls was mit den Dateien nicht stimmen sollte oder man die max_upload_filesize ändern möchte, öffne auf deinem pc powershell und verbinde dich via ssh 
+mit dem Ubuntu Server dafür gibst du einfach neuefeind@10.1.0.101 ein und das obenstehende Passwort. Dann gehe in die php.ini mit dem Befehl 
+„sudo nano /etc/php/8.1/apache2/php.ini“
+(Natürlich ohne Anführungszeichen). Dann drückst du strg + W und suchst nach
+post_max_size 
+dort kannst du dann kannst du dann die die maximale Datengröße einstellen die PHP zulassen soll sie ist gerade auf 100M gestellt (das M steht dabei für MB). Du musst dann aber auch die
+upload_max_filesize 
+ändern, am besten auf dieselbe Größe. Du kannst nach dieser Option auch wieder mit strg + W (oder Ctrl + W) suchen.
+Direkt unter dieser Einstellung findest du auch max_file_uploads, das ist der zugeteilte Wert wie viele Dateien auf einmal hochgeladen werden dürfen.
+Bitte nicht zu hochstellen, sonst könnte man das Bookstack damit crashen.  
+
+Falls die E-Mails nicht mehr funktionieren sollten, kann man in die .env Datei gucken dort stehen alle Informationen zum smtp Versand. 
+Falls du den Port ändern willst, kannst du das machen du musst nur bedenken das ich mit dem Port 465 die TLS Encryption erzwinge damit er kein anderes Protocol verwendet also, 
+wenn du den Port änderst, musst du bei der Encryption auch TLS angeben. Wenn gar nichts mehr geht Nils schreiben. Am besten auf WhatsApp da sehe ich die Nachricht am ehesten. 
